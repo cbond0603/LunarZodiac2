@@ -22,27 +22,20 @@ class ViewController: UIViewController {
         animalImageView.image = UIImage(named: "image\(currentImageNumber)")
     }
 
-    @IBAction func leftButtonPressed(_ sender: Any) {
-        currentYear = currentYear - 1
-        yearLabel.text = "\(currentYear)"
-        currentImageNumber = currentImageNumber - 1
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        //Left
+        currentYear += sender.tag
+        currentImageNumber += sender.tag
         
-        if currentImageNumber == -1 {
+        if currentImageNumber < 0 {
             currentImageNumber = 11
-        }
-        animalImageView.image = UIImage(named: "image\(currentImageNumber)")
-    }
-    
-    @IBAction func rightButtonPressed(_ sender: Any) {
-        currentYear = currentYear + 1
-        yearLabel.text = "\(currentYear)"
-        
-        currentImageNumber = currentImageNumber + 1
-        if currentImageNumber == 12 {
+        } else if currentImageNumber > 11 {
             currentImageNumber = 0
         }
+        yearLabel.text = "\(currentYear)"
         animalImageView.image = UIImage(named: "image\(currentImageNumber)")
         
     }
+    
 }
 
