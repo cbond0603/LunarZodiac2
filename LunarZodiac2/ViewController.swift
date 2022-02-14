@@ -12,29 +12,46 @@ class ViewController: UIViewController {
     var currentYear = 2020
     var currentImageNumber = 0
     
-    @IBOutlet weak var yearLabel: UILabel!
+    var animalNames = ["RAT", "OX", "TIGER", "RABBIT", "DRAGON", "SNAKE", "HORSE", "GOAT", "MONKEY", "ROOSTER", "DOG", "PIG"]
     
+    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var animalNameLabel: UILabel!
     @IBOutlet weak var animalImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         yearLabel.text = "\(currentYear)"
-        animalImageView.image = UIImage(named: "image\(currentImageNumber)")
+        animalImageView.image = UIImage(named: animalNames[currentImageNumber])
+        animalNameLabel.text = "\(animalNames[currentImageNumber])"
     }
 
     @IBAction func buttonPressed(_ sender: UIButton) {
-        //Left
+//        currentYear += sender.tag
+//        currentImageNumber += sender.tag
+//
+//        if currentImageNumber < 0 {
+//            currentImageNumber = 11
+//        } else if currentImageNumber > 11 {
+//            currentImageNumber = 0
+//        }
+//        yearLabel.text = "\(currentYear)"
+//        animalImageView.image = UIImage(named: "image\(currentImageNumber)")
+        
         currentYear += sender.tag
         currentImageNumber += sender.tag
-        
+
         if currentImageNumber < 0 {
             currentImageNumber = 11
         } else if currentImageNumber > 11 {
             currentImageNumber = 0
         }
         yearLabel.text = "\(currentYear)"
-        animalImageView.image = UIImage(named: "image\(currentImageNumber)")
+        animalImageView.image = UIImage(named: animalNames[currentImageNumber])
+        animalNameLabel.text = "\(animalNames[currentImageNumber])"
+
         
+        
+
     }
     
 }
